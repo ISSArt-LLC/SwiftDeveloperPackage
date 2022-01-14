@@ -11,8 +11,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "iOSDevPackage",
-            targets: ["iOSDevPackage"]),
+            name: "SwiftDevPackage",
+            targets: ["SwiftDevPackage"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,10 +22,27 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "iOSDevPackage",
-            dependencies: []),
+            name: "SwiftDevPackage",
+            dependencies: [
+                .target(name: "iOSServices", condition: .when(platforms: [.iOS])),
+                .target(name: "DependencyInjection"),
+        ]),
+        .target(
+            name: "iOSServices",
+            dependencies: [
+                .target(name: "iOSExtensions"),
+                .target(name: "DependencyInjection"),
+        ]),
+        .target(
+            name: "iOSExtensions",
+            dependencies: []
+        ),
+        .target(
+            name: "DependencyInjection",
+            dependencies: []
+        ),
         .testTarget(
             name: "iOSDevPackageTests",
-            dependencies: ["iOSDevPackage"]),
+            dependencies: ["SwiftDevPackage"]),
     ]
 )
