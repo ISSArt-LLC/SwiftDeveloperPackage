@@ -1,5 +1,6 @@
 import Combine
 import AVFoundation
+import DependencyInjection
 
 @available(iOS 13.0, *)
 public class CameraViewModel: ObservableObject {

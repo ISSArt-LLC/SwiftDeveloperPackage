@@ -1,4 +1,5 @@
 import UIKit
+import iOSExtensions
 
 @available(iOS 13.0, *)
 public struct Photo: Identifiable, Equatable {

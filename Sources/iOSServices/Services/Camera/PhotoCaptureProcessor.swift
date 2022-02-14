@@ -1,6 +1,6 @@
 import Photos
 
-@available(iOS 10.0, *)
+@available(iOS 10.0, macOS 10.15, *)
 class PhotoCaptureProcessor: NSObject {
     
     lazy var context = CIContext()
@@ -27,7 +27,7 @@ class PhotoCaptureProcessor: NSObject {
 }
 
 
-@available(iOS 10.0, *)
+@available(iOS 10.0, macOS 10.15, *)
 extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
 
     func photoOutput(_ output: AVCapturePhotoOutput, willBeginCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
@@ -53,7 +53,7 @@ extension PhotoCaptureProcessor: AVCapturePhotoCaptureDelegate {
         }
     }
     
-    @available(iOS 11.0, *)
+    @available(iOS 11.0, macOS 10.15, *)
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
         DispatchQueue.main.async {
