@@ -50,7 +50,7 @@ public final class NavigationControllerViewModel: ObservableObject {
         }
     }
     
-    init(easing: Animation) {
+    public init(easing: Animation) {
         self.easing = easing
     }
     
