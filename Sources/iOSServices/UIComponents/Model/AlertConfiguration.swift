@@ -11,5 +11,7 @@ public struct AlertConfiguration {
     public var keyboardType: UIKeyboardType = .default
     public var action: (String?) -> Void
     public var secondaryAction: VoidCallback? = nil
+    
+    public init() {}
 }
 
