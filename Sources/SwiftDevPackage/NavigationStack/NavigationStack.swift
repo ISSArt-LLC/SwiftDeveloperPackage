@@ -50,7 +50,7 @@ public final class NavigationControllerViewModel: ObservableObject {
         }
     }
     
-    init(easing: Animation) {
+    public init(easing: Animation) {
         self.easing = easing
     }
     
@@ -83,8 +83,14 @@ public struct NavigationControllerView<Content>: View where Content: View {
     private let content: Content
     private let transition: (push: AnyTransition, pop: AnyTransition)
     
-    public init(transition: NavigationTransition, easing: Animation = .easeOut(duration: 0.33), @ViewBuilder content: @escaping () -> Content) {
-        self.viewModel = NavigationControllerViewModel(easing: easing)
+    public init(
+        transition: NavigationTransition,
+        viewModel: NavigationControllerViewModel = NavigationControllerViewModel(
+            easing: .easeOut(duration: 0.33)
+        ),
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.viewModel = viewModel
         self.content = content()
         switch transition {
         case .custom(let pushTransition, let popTransition):

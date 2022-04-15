@@ -1,5 +1,5 @@
 import XCTest
-@testable import iOSDevPackage
+@testable import SwiftDevPackage
 
 final class iOSDevPackageTests: XCTestCase {
     func testExample() {
