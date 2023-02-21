@@ -2,10 +2,22 @@ import Foundation
 import SwiftUI
 
 public struct RoundedCorners: Shape {
-    var tl: CGFloat = 0.0
-    var tr: CGFloat = 0.0
-    var bl: CGFloat = 0.0
-    var br: CGFloat = 0.0
+    private let tl: CGFloat
+    private let tr: CGFloat
+    private let bl: CGFloat
+    private let br: CGFloat
+
+    public init(
+        tl: CGFloat = 0.0,
+        tr: CGFloat = 0.0,
+        bl: CGFloat = 0.0,
+        br: CGFloat = 0.0
+    ) {
+        self.tr = tr
+        self.tl = tl
+        self.bl = bl
+        self.br = br
+    }
 
     public func path(in rect: CGRect) -> Path {
         var path = Path()
