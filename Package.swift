@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "iOSDevPackage",
     platforms: [
-        .iOS(.v13), .watchOS(.v6)
+        .iOS(.v13), .watchOS(.v6), .macOS(.v10_15)
     ],
     products: [
         .library(
